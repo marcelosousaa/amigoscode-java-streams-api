@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class GettingStarted {
@@ -17,6 +18,8 @@ public class GettingStarted {
         // 1. Find people aged less or equal 18
         // 2. Then change implementation to find first 10 people
         List<Person> people = MockData.getPeople();
+
+        people.stream().filter(person -> person.getAge() <= 18).forEach(System.out::println);
     }
 
     @Test
