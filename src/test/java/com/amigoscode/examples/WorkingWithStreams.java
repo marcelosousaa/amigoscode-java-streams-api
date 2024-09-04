@@ -14,15 +14,5 @@ public class WorkingWithStreams {
     @Disabled
     void steams() {
         List<String> names = List.of("Amigoscode", "Alex", "Zara");
-        Stream<String> stream = names.stream();
-
-        Stream<String> namesStream = Stream.of("Amigoscode", "Alex", "Zara");
-
-        long count = stream
-                .limit(2).map(null).sorted(null).dropWhile(null)
-                .count();
-
-        String[] namesArray = {};
-        Arrays.stream(namesArray);
     }
 }
