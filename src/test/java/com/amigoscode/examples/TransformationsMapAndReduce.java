@@ -12,11 +12,27 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class TransformationsMapAndReduce {
 
     @Test
     void yourFirstTransformationWithMap() throws IOException {
         List<Person> people = MockData.getPeople();
+
+        Function<Person, PersonDTO> personPersonDTOFunction =
+                person -> new PersonDTO(
+                        person.getId(),
+                        person.getFirstName(),
+                        person.getAge()
+                );
+
+        List<PersonDTO> dtos = people.stream()
+                .filter(person -> person.getAge() > 20)
+                .map(PersonDTO::map)
+                .collect(Collectors.toList());
+
+        dtos.forEach(System.out::println);
     }
 
     @Test
